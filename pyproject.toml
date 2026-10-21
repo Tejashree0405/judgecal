@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "judgecal"
+version = "0.1.0"
+description = "Measure LLM-as-judge agreement with human judgments, and how much calibration helps."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Teja Shree" }]
+license-files = ["LICENSE"]
+keywords = ["llm", "llm-as-judge", "evaluation", "mt-bench", "calibration"]
+dependencies = [
+    "litellm>=1.50",
+    "datasets>=2.18",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+judgecal = "judgecal.cli:main"
+
+[tool.setuptools]
+packages = ["judgecal"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
